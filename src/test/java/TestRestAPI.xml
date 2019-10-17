@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LoginTest" parallel="none">
+    <test name="getTest">
+        <classes>
+            <class name="Test">
+                <methods>
+                    <include name="getTest">
+                        <parameter name="statusCode" value="200"/>
+                        <parameter name="id" value="2"/>
+                    </include>
+                    <include name="createTest">
+                        <parameter name="statusCode" value="201"/>
+                        <parameter name="jsonRquest" value='{"name": "morpheus", "job": "leader"}'/>
+                    </include>
+                   <include name="updateTest">
+                    <parameter name="statusCode" value="200"/>
+                    <parameter name="jsonRquest" value='{"name": "morpheus", "job": "leader"}'/>
+                    </include>
+                    <include name="deleteTest">
+                        <parameter name="statusCode" value="204"/>
+                        <parameter name="id" value="2"/>
+                    </include>
+                    <include name="notFoundTest">
+                        <parameter name="statusCode" value="404"/>
+                        <parameter name="id" value="23"/>
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
